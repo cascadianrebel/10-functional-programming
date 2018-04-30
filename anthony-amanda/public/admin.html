@@ -10,7 +10,18 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-  </head>
+
+    <script id= "author-stats-template" type= "text/x-handlebar-template">
+    <div class= "author-stats">
+        {{{<li>author_id</li>}}}
+        {{{<li>author_name</li>}}}
+        {{{<li>total_articles</li>}}}
+        {{{<li>total_words</li>}}}
+      </ul>
+    </div>
+    </script>
+
+    </head>
   <body>
     <header class="site-header clearfix">
       <section class="heading-group-h1 pull-left">
@@ -48,7 +59,7 @@
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
     <script>
-      Article.fetchAll();
+      Article.fetchAll(articleView.initAdminPage);
     </script>
   </body>
 </html>

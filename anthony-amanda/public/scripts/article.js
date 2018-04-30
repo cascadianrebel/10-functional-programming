@@ -10,7 +10,7 @@ Article.all = [];
 
 Article.prototype.toHtml = function() {
   var template = Handlebars.compile($('#article-template').text());
-
+ 
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
   this.body = marked(this.body);
@@ -18,12 +18,14 @@ Article.prototype.toHtml = function() {
   return template(this);
 };
 
+
 Article.loadAll = articleData => {
   articleData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
-  /* OLD forEach():
+  //  OLD forEach():
+  //TODO: 
   articleData.forEach(articleObject => Article.all.push(new Article(articleObject)));
-  */
+  
 
 };
 
